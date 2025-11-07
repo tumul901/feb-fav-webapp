@@ -1,0 +1,75 @@
+@reference "tailwindcss";
+
+/* Base Navbar Styling */
+.navbar {
+  @apply sticky top-0 z-50 w-full h-24;
+  @apply transition-all duration-300 ease-in-out;
+}
+.bgTop {
+  @apply bg-zinc-950/5; /* 95% transparent */
+}
+.bgScrolled {
+  @apply bg-zinc-950/80; /* 20% transparent */
+}
+
+/* Main container for navbar items */
+.navbarContainer {
+  @apply container mx-auto flex h-full items-center justify-between p-10;
+}
+
+/* Logo */
+.navbarLogo {
+  @apply block;
+}
+.navbarLogoImage {
+  @apply h-17 w-auto;
+}
+
+/* Desktop Navigation */
+.desktopNav {
+  @apply hidden  md:flex;
+}
+.desktopNavLink {
+  /* The hover:text-brand-red will be added in the TSX file */
+  @apply block; 
+}
+
+/* Mobile Hamburger Button */
+.mobileMenuButton {
+  /* The hover:text-brand-red will be added in the TSX file */
+  @apply rounded-md p-2 text-white md:hidden;
+}
+.menuIcon {
+  @apply h-8 w-8;
+}
+
+/* Mobile Menu Overlay */
+.mobileMenuOverlay {
+  @apply fixed inset-0 z-50 flex flex-col bg-black;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Header for the overlay */
+.mobileMenuHeader {
+  @apply flex h-24 items-center justify-between px-6;
+  @apply bg-zinc-950/80; /* Match the scrolled navbar */
+}
+
+/* Navigation links inside the overlay */
+.mobileMenuNav {
+  @apply flex flex-1 flex-col items-center justify-center space-y-8;
+}
+.mobileMenuNavLink {
+  /* The hover:text-brand-red will be added in the TSX file */
+  @apply text-3xl font-bold;
+}
+
+/* Animation for the overlay */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
