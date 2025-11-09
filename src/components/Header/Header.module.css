@@ -27,7 +27,7 @@
 
 /* Desktop Navigation */
 .desktopNav {
-  @apply hidden  md:flex;
+  @apply hidden space-x-6 md:flex;
 }
 .desktopNavLink {
   /* The hover:text-brand-red will be added in the TSX file */
@@ -37,7 +37,7 @@
 /* Mobile Hamburger Button */
 .mobileMenuButton {
   /* The hover:text-brand-red will be added in the TSX file */
-  @apply rounded-md p-2 text-white md:hidden;
+  @apply rounded-md p-2 text-white;
 }
 .menuIcon {
   @apply h-8 w-8;
