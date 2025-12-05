@@ -14,7 +14,7 @@
 
 /* Main container for navbar items */
 .navbarContainer {
-  @apply container mx-auto flex h-full items-center justify-between p-10;
+  @apply container mx-auto flex h-full items-center justify-between py-5 px-10;
 }
 
 /* Logo */

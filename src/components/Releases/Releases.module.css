@@ -1,0 +1,156 @@
+/* src/components/Releases/Releases.module.css */
+
+/* --- NEW: Polaroid Card Styles --- */
+
+.card {
+  position: relative;
+  border-radius: 0.5rem; /* 8px */
+  overflow: hidden;
+  background: #1a1a1a;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+  /* 600ms transition */
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  filter: brightness(0.95) contrast(1.05);
+  /* Added for layout */
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  /* Match the Framer Motion props */
+  transform: translateY(-10px) rotate(-1.5deg) scale(1.03);
+  /* Red glow + lift shadow */
+  box-shadow: 0 20px 45px rgba(209, 0, 24, 0.25),
+    0 0 15px rgba(255, 255, 255, 0.1);
+  /* Vintage photo filter */
+  filter: brightness(1.15) contrast(1.1) saturate(1.2);
+}
+
+.cardImageContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  /* Will-change for performance */
+  will-change: transform;
+}
+
+/* Vignette + Frame */
+.cardImageContainer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(0, 0, 0, 0.5) 80%
+  );
+  opacity: 0.4;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  mix-blend-mode: overlay;
+  z-index: 2;
+}
+
+.card:hover .cardImageContainer::before {
+  opacity: 0.7;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Grain Texture */
+.cardImageContainer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  /* Assumes you have this texture in /public/textures/grain.png */
+  background: url('/textures/grain.png');
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.cardTextContainer {
+  padding: 1rem;
+  width: 100%;
+  box-sizing: border-box; /* Ensure padding is included */
+}
+
+.card h3 {
+  color: #fafafa;
+  font-weight: 600;
+  font-size: 1.1rem; /* Base size */
+  transition: color 0.4s ease;
+  /* Removed margin-top, handled by padding in container */
+}
+
+.card:hover h3 {
+  color: #d10018; /* brand-red */
+}
+
+.card p {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.9rem;
+  margin-top: 0.25rem; /* Small space between title and p */
+}
+
+/* --- END: Polaroid Card Styles --- */
+
+/* --- PRESERVED: Modal Styles --- */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(10px);
+  z-index: 100;
+  padding: 1rem;
+}
+
+.modalContent {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 2rem;
+  border-radius: 1rem;
+  background: rgba(20, 20, 20, 0.9);
+  color: white;
+  text-align: center;
+}
+
+.closeButton {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 110;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 9999px;
+  padding: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.closeButton:hover {
+  background: #d10018;
+  transform: scale(1.1);
+}
+
+/* --- PRESERVED: View All Button Style --- */
+
+.viewAllButton {
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 2px solid #d10018;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.viewAllButton:hover {
+  background-color: #d10018;
+  transform: scale(1.05);
+}

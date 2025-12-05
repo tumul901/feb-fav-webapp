@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import Header from '@/components/Header/Header'; // <-- 1. IMPORT THE HEADER
+import Header from '@/components/Header/Header';
+import { SmoothScroll } from '@/components/ui/SmoothScroll';
+import { DynamicBackground } from '@/components/ui/DynamicBackground';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -17,9 +19,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-black text-white`}>
-        <Header /> {/* <-- 2. ADD THE HEADER HERE */}
-        <main>{children}</main>
+      {/* Removed bg-black text-white to make body transparent */}
+      <body className={`${inter.className} text-white`}>
+        
+        {/* --- GLOBAL DYNAMIC BACKGROUND --- */}
+        <DynamicBackground />
+        
+        <Header />
+        <SmoothScroll>
+          <main>{children}</main>
+        </SmoothScroll>
       </body>
     </html>
   );

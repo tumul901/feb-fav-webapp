@@ -1,12 +1,13 @@
 import Hero from '@/components/Hero/Hero';
-// import Header from '@/components/Header/Header'; // <-- 1. DELETE THIS
+import Releases from '@/components/Releases/Releases';
+import { ArtistSpotlight } from '@/components/Artists/ArtistSpotlight';
 
 export default function Home() {
   return (
     <div>
-   
-      <Hero />
-      {/* Next section goes here */}
+      <Hero/>
+      <Releases/>
+      <ArtistSpotlight />
     </div>
   );
 }
