@@ -36,8 +36,8 @@ const Header: React.FC = () => {
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled 
-            ? 'py-4 bg-black/50 backdrop-blur-xl border-b border-white/5' 
-            : 'py-6 bg-transparent'
+            ? 'py-2 bg-black/50 backdrop-blur-xl border-b border-white/5' 
+            : 'py-4 bg-transparent'
         }`}
       >
         <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
@@ -47,8 +47,8 @@ const Header: React.FC = () => {
              <Image
                src="/bg/Februarys-Favorite/februarys-favourite-logo-dark.png"
                alt="February's Favourite"
-               width={140}
-               height={40}
+               width={120}
+               height={35}
                className="object-contain transition-opacity duration-300 group-hover:opacity-80"
                priority
              />

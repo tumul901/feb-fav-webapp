@@ -40,7 +40,7 @@ export const FullScreenNavbar: React.FC<FullScreenNavbarProps> = ({ pathname, on
     visible: { 
       y: 0, 
       opacity: 1,
-      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
+      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }
     }
   };
 
@@ -67,7 +67,7 @@ export const FullScreenNavbar: React.FC<FullScreenNavbarProps> = ({ pathname, on
           onMouseEnter={() => setHoveredLink(item.label)}
           onMouseLeave={() => setHoveredLink(null)}
           className={`
-            block text-5xl md:text-8xl font-black uppercase tracking-tighter
+            block text-4xl md:text-7xl font-black uppercase tracking-tighter
             transition-all duration-500 ease-in-out
             ${
               hoveredLink && hoveredLink !== item.label
@@ -84,16 +84,34 @@ export const FullScreenNavbar: React.FC<FullScreenNavbarProps> = ({ pathname, on
     ))}
   </nav>
 
-  {/* Footer / Socials */}
+  {/* Footer / Socials / Details */}
   <motion.div 
     variants={itemVariants} 
-    className="absolute bottom-10 md:bottom-16 flex items-center gap-8"
+    className="absolute bottom-10 md:bottom-16 w-full container mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between text-neutral-500 text-sm md:text-base font-medium"
   >
-     {[Instagram, Facebook, Youtube, Cloud].map((Icon, idx) => (
-        <a key={idx} href="#" className="text-white/50 hover:text-white transition-colors duration-300">
-            <Icon size={24} />
-        </a>
-     ))}
+     {/* Contact Details & Inquiries (Left) */}
+     <div className="hidden md:flex gap-12 tracking-wide text-left">
+        <div>
+           <p className="uppercase text-neutral-600 mb-1">Studio Address</p>
+           <p>123 Music Row, Suite 500</p>
+           <p>Nashville, TN 37212</p>
+        </div>
+        
+        <div>
+           <p className="uppercase text-neutral-600 mb-1">Inquiries</p>
+           <a href="mailto:info@febfav.com" className="block hover:text-brand-red transition-colors">info@febfav.com</a>
+           <a href="tel:+123456789" className="block hover:text-brand-red transition-colors">+1 (234) 567-890</a>
+        </div>
+     </div>
+
+     {/* Socials (Right) */}
+     <div className="flex items-center gap-8 mt-6 md:mt-0">
+        {[Instagram, Facebook, Youtube, Cloud].map((Icon, idx) => (
+            <a key={idx} href="#" className="text-white/50 hover:text-white transition-colors duration-300">
+                <Icon size={24} />
+            </a>
+        ))}
+     </div>
   </motion.div>
 
 </motion.div>

@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { motion, useScroll, useTransform, Variants } from 'framer-motion';
 import { TextReveal } from '@/components/ui/TextReveal';
 import { GlassCard } from '@/components/ui/GlassCard';
-import { Play, ArrowDown } from 'lucide-react';
+import { Play } from 'lucide-react';
 
 const Hero: React.FC = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -58,6 +58,16 @@ const Hero: React.FC = () => {
               {/* Reflection/Glow Element */}
               <div className="absolute -inset-10 -z-10 bg-brand-red/20 blur-[100px] opacity-50" />
             </div>
+
+             {/* Brand Descriptor - Cinematic Subtitle */}
+             <motion.p
+              initial={{ opacity: 0, letterSpacing: '0em' }}
+              animate={{ opacity: 1, letterSpacing: '0.3em' }}
+              transition={{ delay: 1.2, duration: 1.5, ease: "easeOut" }}
+              className="mt-6 md:mt-8 text-[10px] md:text-sm font-bold text-neutral-400 uppercase mix-blend-plus-lighter"
+            >
+              Record Label <span className="mx-2 text-brand-red">•</span> Production House
+            </motion.p>
           </div>
         </div>
 
@@ -79,23 +89,24 @@ const Hero: React.FC = () => {
           </GlassCard>
         </motion.div>
 
-        {/* Scroll Indicator */}
+        {/* Brand Manifesto (Bottom Left) */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 2, duration: 1 }}
-          className="absolute bottom-10 left-1/2 -translate-x-1/2"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.4, duration: 0.8 }}
+          className="absolute bottom-12 left-8 hidden md:block max-w-sm text-left"
         >
-          <div className="flex flex-col items-center gap-2">
-            <span className="text-[10px] uppercase tracking-[0.2em] text-white/50">Scroll</span>
-            <motion.div
-              animate={{ y: [0, 10, 0] }}
-              transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-            >
-              <ArrowDown size={20} className="text-white/50" />
-            </motion.div>
-          </div>
+            <div className="flex gap-4">
+                <div className="w-[1px] h-auto bg-gradient-to-b from-brand-red to-transparent" />
+                <p className="text-xs md:text-sm font-light text-neutral-400 leading-relaxed tracking-wide">
+                    ...is where every musical possibility comes to life. 
+                    <br />
+                    <span className="text-white font-medium">If it belongs to the world of music, it happens here.</span>
+                </p>
+            </div>
         </motion.div>
+
+
       </div>
     </div>
   );

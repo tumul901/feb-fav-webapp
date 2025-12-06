@@ -47,7 +47,7 @@ export const TextReveal = ({ text, className = '', delay = 0 }: TextRevealProps)
   return (
     <motion.h1
       ref={ref}
-      className={`relative inline-block overflow-hidden ${className}`} // Ensure overflow hidden for clean reveal
+      className={`relative inline-block overflow-hidden px-1 py-1 -mx-1 -my-1 ${className}`} // Add padding to prevent clipping of ascenders/descenders
       variants={containerVariants}
       initial="hidden"
       animate={isInView ? 'visible' : 'hidden'}

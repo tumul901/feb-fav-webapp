@@ -56,14 +56,24 @@ const Releases: React.FC = () => {
                  </h2>
             </div>
             
-            {/* Scroll Controls */}
-             <div className="flex gap-4 mt-8 md:mt-0">
-                <button onClick={() => scroll('left')} className="p-4 rounded-full border border-white/10 hover:bg-white/10 transition-colors group">
-                    <ArrowLeft className="text-white group-hover:text-brand-red transition-colors" />
-                </button>
-                <button onClick={() => scroll('right')} className="p-4 rounded-full border border-white/10 hover:bg-white/10 transition-colors group">
-                    <ArrowRight className="text-white group-hover:text-brand-red transition-colors" />
-                </button>
+            {/* Controls & Link */}
+             <div className="flex items-center gap-6 mt-8 md:mt-0">
+                <a 
+                  href="/releases" 
+                  className="hidden md:flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-neutral-400 hover:text-brand-red transition-colors group"
+                >
+                    View All
+                    <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+                </a>
+
+                <div className="flex gap-4">
+                    <button onClick={() => scroll('left')} className="p-4 rounded-full border border-white/10 hover:bg-white/10 transition-colors group">
+                        <ArrowLeft className="text-white group-hover:text-brand-red transition-colors" />
+                    </button>
+                    <button onClick={() => scroll('right')} className="p-4 rounded-full border border-white/10 hover:bg-white/10 transition-colors group">
+                        <ArrowRight className="text-white group-hover:text-brand-red transition-colors" />
+                    </button>
+                </div>
              </div>
         </div>
 

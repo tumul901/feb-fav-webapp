@@ -22,7 +22,7 @@
   @apply block;
 }
 .navbarLogoImage {
-  @apply h-17 w-auto;
+  @apply h-12 w-auto;
 }
 
 /* Desktop Navigation */

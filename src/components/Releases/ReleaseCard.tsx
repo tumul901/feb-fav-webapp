@@ -13,7 +13,7 @@ interface ReleaseCardProps {
 export const ReleaseCard = ({ release, onClick }: ReleaseCardProps) => {
   return (
     <motion.div
-      className="group relative h-[400px] w-[300px] flex-shrink-0 cursor-pointer"
+      className="group relative h-[350px] w-[280px] flex-shrink-0 cursor-pointer"
       whileHover={{ y: -20, rotate: -2 }}
       transition={{ type: 'spring', stiffness: 300, damping: 20 }}
       onClick={() => onClick(release)}
