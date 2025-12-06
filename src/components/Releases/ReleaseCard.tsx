@@ -32,7 +32,7 @@ export const ReleaseCard = ({ release, onClick }: ReleaseCardProps) => {
           {/* Shine Effect */}
           <div className="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
           
-          {/* Play Overlay */}
+          {/* Play Overlay - glass always rendered, opacity controlled */}
           <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
              <div className="flex h-16 w-16 items-center justify-center rounded-full bg-brand-red/90 backdrop-blur-sm">
                 <Play className="ml-1 fill-white text-white" size={32} />

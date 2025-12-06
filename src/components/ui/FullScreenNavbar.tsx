@@ -45,17 +45,22 @@ export const FullScreenNavbar: React.FC<FullScreenNavbarProps> = ({ pathname, on
   };
 
   return (
-    <motion.div
-  role="dialog"
-  aria-modal="true"
-  className="fixed inset-0 z-40 flex flex-col items-center justify-center bg-black/80 backdrop-blur-3xl"
-  variants={containerVariants}
-  initial="hidden"
-  animate="visible"
-  exit="exit"
->
-  {/* Background Glow Effect */}
-  <div className="absolute inset-0 z-[-1] bg-gradient-to-b from-brand-red/5 to-transparent pointer-events-none" />
+    <>
+      {/* Blur layer - always visible, never animates */}
+      <div className="fixed inset-0 z-40 bg-black/80 backdrop-blur-3xl" />
+      
+      {/* Content layer - this animates */}
+      <motion.div
+        role="dialog"
+        aria-modal="true"
+        className="fixed inset-0 z-40 flex flex-col items-center justify-center"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+      >
+        {/* Background Glow Effect */}
+        <div className="absolute inset-0 z-[-1] bg-gradient-to-b from-brand-red/5 to-transparent pointer-events-none" />
 
   {/* Main Navigation Links */}
   <nav className="flex flex-col items-center justify-center space-y-2 md:space-y-6">
@@ -114,6 +119,7 @@ export const FullScreenNavbar: React.FC<FullScreenNavbarProps> = ({ pathname, on
      </div>
   </motion.div>
 
-</motion.div>
+      </motion.div>
+    </>
   );
 };

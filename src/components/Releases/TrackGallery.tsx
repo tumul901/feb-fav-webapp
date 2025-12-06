@@ -162,8 +162,11 @@ export const TrackGallery = ({ tracks, activeTrackId, onTrackSelect }: TrackGall
                                 {/* Glass Overlay on Hover (No Blur on self) */}
                                 <div className={`absolute inset-0 bg-black/20 transition-opacity duration-500 ${isHovered ? 'opacity-100' : 'opacity-0'}`} />
                                 
-                                {/* Play Button */}
-                                <div className={`absolute inset-0 flex items-center justify-center transition-all duration-300 ${isHovered ? 'opacity-100 scale-100' : 'opacity-0 scale-50'}`}>
+                                {/* Play Button - glass ALWAYS visible, hidden via scale */}
+                                <div 
+                                    className={`absolute inset-0 flex items-center justify-center transition-transform duration-500 ${isHovered ? 'scale-100 pointer-events-auto' : 'scale-0 pointer-events-none'}`}
+                                >
+                                    {/* Glass button - always rendered at full opacity */}
                                     <div className="h-16 w-16 rounded-full bg-white/10 backdrop-blur-xl flex items-center justify-center border border-white/20 shadow-xl">
                                         <Play size={28} className="fill-white text-white ml-1" />
                                     </div>

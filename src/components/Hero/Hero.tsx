@@ -29,18 +29,21 @@ const Hero: React.FC = () => {
         
         {/* Main Typography Group */}
         <div className="flex flex-col items-center text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.8 }}
-            className="mb-2 flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-4 py-1.5 backdrop-blur-md"
-          >
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand-red opacity-75"></span>
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-brand-red"></span>
-            </span>
-            <span className="text-xs font-medium uppercase tracking-widest text-white/80">est. 2024</span>
-          </motion.div>
+          {/* Glass badge - container always visible, content animates */}
+          <div className="mb-2 flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-4 py-1.5 backdrop-blur-md">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.2, duration: 0.8 }}
+              className="flex items-center gap-2"
+            >
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand-red opacity-75"></span>
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-brand-red"></span>
+              </span>
+              <span className="text-xs font-medium uppercase tracking-widest text-white/80">est. 2024</span>
+            </motion.div>
+          </div>
 
           <div className="flex flex-col leading-none">
             {/* Massive Staggered Reveal Title */}
@@ -71,23 +74,25 @@ const Hero: React.FC = () => {
           </div>
         </div>
 
-        {/* Floating "Now Playing" Widget (Bottom Right) */}
-        <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 1.2, duration: 0.8, ease: "easeOut" }}
-          className="absolute bottom-8 right-8 hidden md:block"
-        >
+        {/* Floating "Now Playing" Widget (Bottom Right) - Glass always visible */}
+        <div className="absolute bottom-8 right-8 hidden md:block">
           <GlassCard className="flex w-64 items-center gap-4 !p-4 transition-transform hover:scale-105">
-            <div className="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white/10">
-               <Play size={20} className="fill-white text-white ml-1" />
-            </div>
-            <div className="flex flex-col">
-              <span className="text-xs font-bold uppercase text-brand-red">Latest Release</span>
-              <span className="text-sm font-semibold text-white">Midnight Echoes</span>
-            </div>
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 1.2, duration: 0.8, ease: "easeOut" }}
+              className="flex items-center gap-4"
+            >
+              <div className="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white/10">
+                 <Play size={20} className="fill-white text-white ml-1" />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-xs font-bold uppercase text-brand-red">Latest Release</span>
+                <span className="text-sm font-semibold text-white">Midnight Echoes</span>
+              </div>
+            </motion.div>
           </GlassCard>
-        </motion.div>
+        </div>
 
         {/* Brand Manifesto (Bottom Left) */}
         <motion.div

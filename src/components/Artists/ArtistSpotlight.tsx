@@ -69,17 +69,20 @@ export const ArtistSpotlight = () => {
            </motion.div>
 
             {/* Floating Decorative Elements */}
-            <motion.div 
-                className="absolute bottom-10 right-10 z-20 hidden md:block"
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.6 }}
-            >
+            <div className="absolute bottom-10 right-10 z-20 hidden md:block">
+                {/* Blur layer - always visible, never animated */}
                 <div className="backdrop-blur-md bg-white/5 border border-white/10 p-6 rounded-2xl">
-                    <p className="text-4xl font-bold text-white">2024</p>
-                    <p className="text-xs uppercase tracking-widest text-neutral-400">Debuting Now</p>
+                    {/* Content - this is what animates in */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.6, duration: 0.6, ease: 'easeOut' }}
+                    >
+                        <p className="text-4xl font-bold text-white">2024</p>
+                        <p className="text-xs uppercase tracking-widest text-neutral-400">Debuting Now</p>
+                    </motion.div>
                 </div>
-            </motion.div>
+            </div>
         </div>
 
       </div>
