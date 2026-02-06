@@ -16,11 +16,33 @@ interface TourDate {
 }
 
 const tourDates: TourDate[] = [
-  { id: '1', date: '12', month: 'DEC', city: 'Mumbai', venue: 'The Royal Opera House', status: 'sold-out' },
-  { id: '2', date: '18', month: 'DEC', city: 'Delhi', venue: 'Jawaharlal Nehru Stadium', status: 'available' },
-  { id: '3', date: '24', month: 'DEC', city: 'Bangalore', venue: 'Bangalore Palace', status: 'limited' },
-  { id: '4', date: '05', month: 'JAN', city: 'Pune', venue: 'Mahalaxmi Lawns', status: 'available' },
-  { id: '5', date: '14', month: 'JAN', city: 'Hyderabad', venue: 'Gachibowli Stadium', status: 'available' },
+  { 
+    id: '1', 
+    date: '15', 
+    month: 'FEB', 
+    city: 'Gurgaon', 
+    venue: 'Heal with Mahima', 
+    status: 'available', 
+    ticketLink: 'https://www.instagram.com/februarysfavourite?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==' 
+  },
+  { 
+    id: '2', 
+    date: '20', 
+    month: 'FEB', 
+    city: 'Gurgaon', 
+    venue: 'Dhaivat Aarambh', 
+    status: 'available', 
+    ticketLink: 'https://www.instagram.com/februarysfavourite?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==' 
+  },
+  { 
+    id: '3', 
+    date: '15', 
+    month: 'MAR', 
+    city: 'New Delhi', 
+    venue: 'The Trialogue Company', 
+    status: 'available', 
+    ticketLink: 'https://www.instagram.com/februarysfavourite?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==' 
+  },
 ];
 
 export const Tour = () => {
@@ -31,7 +53,7 @@ export const Tour = () => {
              {/* Header */}
              <div className="mb-16 md:mb-24 flex items-end gap-6">
                 <TextReveal text="TOUR" className="text-[15vw] leading-[0.8] font-black tracking-tighter text-white mix-blend-difference" />
-                <span className="hidden md:block text-xl font-bold text-brand-red mb-4 tracking-[0.2em] uppercase">2024 / 2025</span>
+                <span className="hidden md:block text-xl font-bold text-brand-red mb-4 tracking-[0.2em] uppercase">2025</span>
              </div>
 
              {/* Tour List */}
@@ -45,7 +67,7 @@ export const Tour = () => {
                         <div className="col-span-2 text-right">Status</div>
                     </div>
 
-                    {tourDates.slice(0, 3).map((item) => (
+                    {tourDates.map((item) => (
                         <motion.div 
                             key={item.id}
                             initial={{ opacity: 0, y: 20 }}
@@ -82,7 +104,10 @@ export const Tour = () => {
                                         Sold Out
                                     </span>
                                 ) : (
-                                    <motion.button
+                                    <motion.a
+                                        href={item.ticketLink}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
                                         whileHover={{ scale: 1.05 }}
                                         whileTap={{ scale: 0.95 }}
                                         className={`
@@ -97,7 +122,7 @@ export const Tour = () => {
                                     >
                                         Tickets
                                         <ArrowUpRight size={16} />
-                                    </motion.button>
+                                    </motion.a>
                                 )}
                             </div>
 

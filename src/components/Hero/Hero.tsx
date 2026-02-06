@@ -62,15 +62,35 @@ const Hero: React.FC = () => {
               <div className="absolute -inset-10 -z-10 bg-brand-red/20 blur-[100px] opacity-50" />
             </div>
 
-             {/* Brand Descriptor - Cinematic Subtitle */}
-             <motion.p
+            <motion.p
               initial={{ opacity: 0, letterSpacing: '0em' }}
               animate={{ opacity: 1, letterSpacing: '0.3em' }}
               transition={{ delay: 1.2, duration: 1.5, ease: "easeOut" }}
               className="mt-6 md:mt-8 text-[10px] md:text-sm font-bold text-neutral-400 uppercase mix-blend-plus-lighter"
             >
-              Record Label <span className="mx-2 text-brand-red">•</span> Production House
+              Record Label <span className="mx-2 text-brand-red">•</span> Production House <span className="mx-2 text-brand-red">•</span> Distribution
             </motion.p>
+
+            {/* Primary CTAs */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.6, duration: 0.8 }}
+              className="mt-8 flex flex-col md:flex-row items-center gap-4 md:gap-6"
+            >
+              <a 
+                href="/releases"
+                className="px-8 py-3 rounded-full bg-brand-red text-white text-sm font-bold uppercase tracking-widest hover:bg-red-700 transition-colors shadow-[0_0_20px_rgba(209,0,24,0.3)] hover:shadow-[0_0_30px_rgba(209,0,24,0.5)]"
+              >
+                Discover Music
+              </a>
+              <a 
+                href="/contact"
+                className="px-8 py-3 rounded-full border border-white/20 text-white text-sm font-bold uppercase tracking-widest hover:bg-white/10 transition-colors"
+              >
+                Work With Us
+              </a>
+            </motion.div>
           </div>
         </div>
 

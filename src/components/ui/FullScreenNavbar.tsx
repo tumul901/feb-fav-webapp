@@ -13,9 +13,13 @@ interface FullScreenNavbarProps {
 }
 
 const navItems = [
+  { label: 'Home', href: '/' },
   { label: 'Releases', href: '/releases' },
   { label: 'Artists', href: '/artists' },
+  { label: 'Services', href: '/services' },
   { label: 'Tour', href: '/tour' },
+  { label: 'News', href: '/news' },
+  { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ];
 
@@ -63,7 +67,7 @@ export const FullScreenNavbar: React.FC<FullScreenNavbarProps> = ({ pathname, on
         <div className="absolute inset-0 z-[-1] bg-gradient-to-b from-brand-red/5 to-transparent pointer-events-none" />
 
   {/* Main Navigation Links */}
-  <nav className="flex flex-col items-center justify-center space-y-2 md:space-y-6">
+  <nav className="flex flex-col items-center justify-center space-y-1 md:space-y-2">
     {navItems.map((item) => (
       <motion.div key={item.href} variants={itemVariants} className="relative group">
         <Link
@@ -72,7 +76,7 @@ export const FullScreenNavbar: React.FC<FullScreenNavbarProps> = ({ pathname, on
           onMouseEnter={() => setHoveredLink(item.label)}
           onMouseLeave={() => setHoveredLink(null)}
           className={`
-            block text-4xl md:text-7xl font-black uppercase tracking-tighter
+            block text-2xl md:text-5xl font-black uppercase tracking-tighter
             transition-all duration-500 ease-in-out
             ${
               hoveredLink && hoveredLink !== item.label
@@ -92,7 +96,7 @@ export const FullScreenNavbar: React.FC<FullScreenNavbarProps> = ({ pathname, on
   {/* Footer / Socials / Details */}
   <motion.div 
     variants={itemVariants} 
-    className="absolute bottom-10 md:bottom-16 w-full container mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between text-neutral-500 text-sm md:text-base font-medium"
+    className="absolute bottom-6 md:bottom-10 w-full container mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between text-neutral-500 text-sm md:text-base font-medium"
   >
      {/* Contact Details & Inquiries (Left) */}
      <div className="hidden md:flex gap-12 tracking-wide text-left">

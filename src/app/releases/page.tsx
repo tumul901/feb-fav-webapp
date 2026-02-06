@@ -101,14 +101,47 @@ export default function ReleasesPage() {
             {/* Divider */}
             <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
-            {/* Gallery Section */}
-            <section className="py-20 md:py-28">
-                <TrackGallery 
-                    tracks={releases} 
-                    activeTrackId={currentTrack?.id || null}
-                    onTrackSelect={setCurrentTrack} 
-                />
-            </section>
+            {/* Categorized Galleries */}
+            <div className="space-y-24 pb-48">
+                {/* SINGLES */}
+                <section>
+                    <div className="container mx-auto px-8 md:px-16 mb-8">
+                         <h2 className="text-3xl font-bold uppercase tracking-widest text-brand-red mb-2">Singles</h2>
+                         <div className="h-[1px] w-full bg-white/10" />
+                    </div>
+                    <TrackGallery 
+                        tracks={releases.filter(r => r.type === 'Single')} 
+                        activeTrackId={currentTrack?.id || null}
+                        onTrackSelect={setCurrentTrack} 
+                    />
+                </section>
+
+                {/* EPs */}
+                <section>
+                    <div className="container mx-auto px-8 md:px-16 mb-8">
+                         <h2 className="text-3xl font-bold uppercase tracking-widest text-brand-red mb-2">EPs & Extended Plays</h2>
+                         <div className="h-[1px] w-full bg-white/10" />
+                    </div>
+                    <TrackGallery 
+                        tracks={releases.filter(r => r.type === 'EP')} 
+                        activeTrackId={currentTrack?.id || null}
+                        onTrackSelect={setCurrentTrack} 
+                    />
+                </section>
+
+                {/* ALBUMS */}
+                <section>
+                    <div className="container mx-auto px-8 md:px-16 mb-8">
+                         <h2 className="text-3xl font-bold uppercase tracking-widest text-brand-red mb-2">Albums</h2>
+                         <div className="h-[1px] w-full bg-white/10" />
+                    </div>
+                    <TrackGallery 
+                        tracks={releases.filter(r => r.type === 'Album')} 
+                        activeTrackId={currentTrack?.id || null}
+                        onTrackSelect={setCurrentTrack} 
+                    />
+                </section>
+            </div>
 
             {/* Spacer for Player */}
             <div className="h-48" />
